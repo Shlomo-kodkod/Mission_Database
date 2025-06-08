@@ -11,33 +11,6 @@ namespace Mission_Database
     public class AgentDAL
     {
         private string connStr = "server=localhost;user=root;password=;database=eagleeyedb";
-        private MySqlConnection _conn;
-
-        public MySqlConnection openConnection()
-        {
-            if (_conn == null)
-            {
-                _conn = new MySqlConnection(connStr);
-            }
-
-            if (_conn.State != System.Data.ConnectionState.Open)
-            {
-                _conn.Open();
-                Console.WriteLine("Connection successful.");
-            }
-
-            return _conn;
-        }
-
-        public void closeConnection()
-        {
-            if (_conn != null && _conn.State == System.Data.ConnectionState.Open)
-            {
-                _conn.Close();
-                _conn = null;
-            }
-        }
-
 
         public void AddAgent(Agent agent)
         {
